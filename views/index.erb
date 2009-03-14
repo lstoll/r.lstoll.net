@@ -1,6 +1,45 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<%= "index" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>r.lstoll.net</title>
+<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<style type="text/css" media="screen">@import "/iui/iui.css";</style>
+<style type="text/css" media="screen">@import "/style.css";</style>
+<script type="application/x-javascript" src="/iui/iui.js"></script>
+<!--<link rel="apple-touch-icon" href="images/webclip_icon.png"/>-->
+</head>
+
+
+<body onclick="console.log('Hello', event.target);">
+
+  <div class="toolbar">
+      <h1 id="pageTitle"></h1>
+      <a id="backButton" class="button" href="#"></a>
+      <!--<a class="button" href="#searchForm">Search</a>-->
+  </div>
+
+    <ul id="home" title="Radio" selected="true">
+      <% Stations.each do |k,v| %>
+        <li><a href="/radio?station=<%=k%>" target="_self"><%=v['name']%></a></li>
+      <% end %>
+        <li><a href="mailto:lstoll+radio@lstoll.net?subject=r.lstoll.net Request" target="_self">Requests/Suggestions</a></li>
+        <!--<li><a href="#all_stations">All Stations</a></li>-->
+        <!--<li>Nothing</li>-->
+    </ul>
+    <!--<ul id="all_stations" title="All Stations">
+       <li><a href="stream/?station=triplej" target="_self">TripleJ (128k)</a></li>
+    </ul>-->
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-248879-10");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+</body>
+</html>
+
