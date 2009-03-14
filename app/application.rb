@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'sinatra'
-require 'haml'
 require 'json'
 
 # require everything in lib
@@ -11,15 +10,12 @@ get '/' do
   erb :index
 end
 
+get '/radio' do
+  station = Stations[params['station']]
+end
+
 # Configure Block.
 configure do
-#  config_file = File.expand_path("~/.services.lstoll.net/config.yaml")
-#  if FileTest.exists?(config_file)
-#    Config = YAML::load(File.open(config_file))
-#  else
-#    message = "Config file does not exist at #{config_file}, exiting"
-#    Utils.send_email('lstoll@lstoll.net', "Lincoln Stoll", 'lstoll@me.com', "Lincoln Stoll", "services startup error", message)
-#    puts message
-#    exit
-#  end
+  ROOT_DIR = File.expand_path(File.dirname(__FILE__) + "/..")
+  Stations = YAML::load(File.open(File.join(ROOT_DIR, 'stations.yml')))
 end
