@@ -8,6 +8,7 @@
                 <root id="src.app.dir"/>
                 <root id="src.views.dir"/>
                 <root id="src.dir" name="lib"/>
+                <root id="src.public.dir"/>
             </source-roots>
             <test-roots/>
         </data>
