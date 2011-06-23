@@ -8,6 +8,9 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
 s.connect(("shoutmedia.abc.net.au", 10326))
 stream = IOStream(s)
 
+def on_icy_header(data):
+    stream.read_bytes(4096, on_body)
+
 def on_body(data):
     sys.stdout.write(data)
     stream.read_bytes(4096, on_body)
@@ -17,8 +20,8 @@ def on_body(data):
 stream.write("""GET / HTTP/1.0
 
 """)
-stream.read_bytes(4096, on_body)
-#stream.read_until("""
-#
-#""", on_headers)
+#stream.read_bytes(4096, on_body)
+stream.read_until("""
+
+""", on_icy_header)
 IOLoop.instance().start()
