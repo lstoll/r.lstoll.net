@@ -1,6 +1,6 @@
 ## YAML Template.
 triplej:
-  name: Triple J (128k)
-  host: 202.6.74.107
-  port: 8060
-  file: triplej.mp3
+  name: Triple J (aac)
+  host: shoutmedia.abc.net.au
+  port: 10326
+  file: ''
