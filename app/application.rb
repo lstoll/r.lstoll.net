@@ -17,8 +17,8 @@ get '/radio' do
     range_string = env['HTTP_RANGE'].split('=')[1]
     range = range_string.split('-').collect{|s| s.to_i}
     length = range[1] - range[0] + 1
-    
-    headers({'Content-type' => 'audio/mpeg', 'Accept-Ranges' => 'bytes',
+
+    headers({'Content-type' => 'audio/aac', 'Accept-Ranges' => 'bytes',
         'Content-Length' => length.to_s, # about 1 hr at 128k
         'Content-Range' => 'bytes ' + range[0].to_s + '-' + range[1].to_s + '/76800000'});
 
